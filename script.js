@@ -1,4 +1,3 @@
-// alert("Hello World");
 function clearCalendarArea(parentDiv) {
     parentDiv.innerHTML = '';
 }
