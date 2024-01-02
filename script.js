@@ -1,3 +1,22 @@
+function createCalendarhildElement(weekNumber, weekSum) {
+    let childDiv = document.createElement("div");
+    childDiv.className = "week";
+    // creating week element's elements
+    // week number
+    let childDivNumber = document.createElement("div");
+    childDivNumber.className = "week-top";
+    childDivNumber.innerHTML = i + 1;
+    // sum element
+    let childDivSum = document.createElement("div");
+    childDivSum.className = "week-main";
+    childDivSum.innerHTML = currentAdd;
+    // combining elements
+    childDiv.appendChild(childDivNumber);
+    childDiv.appendChild(childDivSum);
+    
+    return childDiv;
+}
+
 function clearCalendarArea(parentDiv) {
     parentDiv.innerHTML = '';
 }
@@ -5,24 +24,10 @@ function clearCalendarArea(parentDiv) {
 function drawCalendar(parentDiv, startSum, addSum) {
     let finalSum = 0;
     let currentAdd = startSum;
-
+    
     for (let i = 0; i < 52; i++) {
         // creating week element
-        let childDiv = document.createElement("div");
-        childDiv.className = "week";
-        // creating week element's elements
-        // week number
-        let childDivNumber = document.createElement("div");
-        childDivNumber.className = "week-top";
-        childDivNumber.innerHTML = i + 1;
-        // sum element
-        let childDivSum = document.createElement("div");
-        childDivSum.className = "week-main";
-        childDivSum.innerHTML = currentAdd;
-        // combining elements
-        childDiv.appendChild(childDivNumber);
-        childDiv.appendChild(childDivSum);
-        parentDiv.appendChild(childDiv)
+        parentDiv.appendChild(createCalendarhildElement(i + 1, currentAdd));
         // changing varuables
         finalSum += currentAdd;
         currentAdd += addSum;
